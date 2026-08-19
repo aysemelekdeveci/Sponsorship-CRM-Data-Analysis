@@ -21,3 +21,24 @@ Ham takip tablosundan yararlanılarak:
 ## 📂 Dosya Yapısı
 - `sponsorluk_analizi.sql`: Tablo şeması, örnek veri girişi ve çalıştırılan tüm analitik sorgular.
 - `README.md`: Proje dokümantasyonu ve özet rapor.
+
+## 📈 Analiz Bulguları ve Özet Rapor
+
+### 1. Genel Operasyonel Metrikler
+* **Görüşülen Toplam Firma:** 80
+* **Aktif Görev Alan Ekip Üyesi:** 9
+* **Olumsuz Dönüş Alınan:** 7
+* **Dönüş Beklenen / Takip Listesi:** 73
+---
+### 2. Ekip Üyeleri İş Yükü ve Firma Dağılımı
+| Sorumlu Üye | İlgilenilen Firma Sayısı |
+| :--- | :--- |
+| **Zeynep** | 29 |
+| **Şule** | 26 |
+| **Nalan** | 7 |
+| **Melek** | 7 |
+| **Ahsen** | 4 |
+| **Helen** | 3 |
+| **Hüseyin** | 3 |
+| **Nesibe** | 1 |
+| **Yusuf** | 1 |
