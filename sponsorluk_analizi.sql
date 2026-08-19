@@ -1,19 +1,17 @@
-USE sponsorluk_db; -- (Kendi verdiğin veritabanı adı neyse onu yaz)
-
+USE sponsorluk_db; 
 SHOW TABLES;
 USE sponsorluk_db;
 
--- Tablonun yapısını ve sütun isimlerini listeler
 DESCRIBE gida;
 
--- Tablodaki tüm verileri getirir
+
 SELECT * FROM gida LIMIT 10;
 SELECT DISTINCT sorumlu_uye
 FROM gida
 WHERE sorumlu_uye IS NOT NULL AND sorumlu_uye != '';
 USE SponsorlukDB;
 
--- Tabloyu temizle ve yeniden oluştur
+
 DROP TABLE IF EXISTS gida;
 
 CREATE TABLE gida (
@@ -29,7 +27,7 @@ CREATE TABLE gida (
     sorumlu_uye VARCHAR(100)
 );
 
--- Verileri doğrudan ekle
+
 INSERT INTO gida (firma_adi, alt_kategori, etkinlik, telefon_numarasi, eposta, durum, sonuc, gorusme_notlari, sorumlu_uye) VALUES
 ('Eker', 'Yiyecek', 'Stant', NULL, 'info@eker.com', 'Görüşüldü', NULL, NULL, 'Zeynep'),
 ('Sarıyer', 'İçecek', 'Stant', '+90 (264) 654 57 55', 'info@sariyericecek.com.tr', 'Görüşüldü', NULL, NULL, 'Nalan'),
@@ -127,7 +125,7 @@ FROM gida
 WHERE sorumlu_uye IS NOT NULL AND sorumlu_uye != ''
 ORDER BY sorumlu_uye ASC;
 -- ==========================================================
--- SORU 3: Ekip üyeleri kaçar firma ile ilgilenmiş? (Çoktan Aza Sıralı)
+-- SORU : Ekip üyeleri kaçar firma ile ilgilenmiş? (Çoktan Aza Sıralı)
 -- ==========================================================
 SELECT 
     sorumlu_uye, 
@@ -137,13 +135,13 @@ WHERE sorumlu_uye IS NOT NULL AND sorumlu_uye != ''
 GROUP BY sorumlu_uye
 ORDER BY ilgilenilen_firma_sayisi DESC;
 -- ==========================================================
--- SORU 4: Toplam kaç firma ile görüşme yapılmış?
+-- SORU : Toplam kaç firma ile görüşme yapılmış?
 -- ==========================================================
 SELECT COUNT(*) AS toplam_gorusulen_firma_sayisi
 FROM gida
 WHERE durum LIKE '%Görüşüldü%';
 -- ==========================================================
--- SORU 5: Olumsuz dönüşler ve henüz dönüş alınmayanların özeti
+-- SORU : Olumsuz dönüşler ve henüz dönüş alınmayanların özeti
 -- ==========================================================
 SELECT 
     COUNT(CASE WHEN sonuc LIKE '%Olumsuz%' THEN 1 END) AS olumsuz_donus_sayisi,
